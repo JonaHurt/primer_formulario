@@ -1,24 +1,29 @@
-import logo from './logo.svg';
+
+
+import React, { useState } from 'react'
 import './App.css';
+import { Form } from './Components/Form';
+import { FormData } from './Components/FormData';
+
+
 
 function App() {
+  
+  const datos = [{
+    firstname: "",
+    lastname: "",
+    email: "",
+    password: "",
+    confirmpassword: ""
+  }
+  ]
+  const [users, setUsers] = useState(datos)
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <>
+    <h3>Formulario</h3>    
+    <Form users={users} setUsers={setUsers}/>
+    <FormData users={users}/>
+    </>
   );
 }
 
